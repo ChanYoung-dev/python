@@ -6,6 +6,6 @@
 
 ### 1.Basic 
 
-- ​	[Beginner of Basic](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/Basic_of_Basic "basic")
-- 
+- [Beginner of Basic](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/Basic_of_Basic "basic")
+- [DataStructure](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/DataStructre "datastructre")
 
