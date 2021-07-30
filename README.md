@@ -9,3 +9,5 @@
 - [Beginner of Basic](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/Basic_of_Basic "basic")
 - [DataStructure](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/DataStructure "datastructure")
 
+- [conditional_sentence](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/conditional_sentence "conditional_sentence")
+
