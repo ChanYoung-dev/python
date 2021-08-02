@@ -22,32 +22,33 @@
 	```
 
   - #### ljust() & rjsut()
-		왼쪽으로 정렬 , 오른쪽으로 정렬
+    왼쪽으로 정렬 , 오른쪽으로 정렬
 
-		- 정렬을 사용하지 않을 경우
+    - 정렬을 사용하지 않을 경우
 
-		```python
-		scores = {"수학":0, "영어":50, "코딩":100}
-		for subject, scores in scores.items():
-	    	print(subject, scores)
-		'''
-		수학 0
-		영어 50
-		코딩 100
-		'''
-		```
-		- ljust() & rjust() 를 사용할 경우
-	
-		```python
-		scores = {"수학":0, "영어":50, "과학":100}
-		for subject, score in scores.items():
-		    print(subject.ljust(4), str(score).rjust(8), sep=":")
-		'''
-		수학  :       0
-		영어  :      50
-		과학  :     100
-		'''
-		```
+    ```python
+    scores = {"수학":0, "영어":50, "코딩":100}
+    for subject, scores in scores.items():
+        print(subject, scores)
+    '''
+    수학 0
+    영어 50
+    코딩 100
+    '''
+    ```
+    
+    - ljust() & rjust() 를 사용할 경우
+
+    ```python
+    scores = {"수학":0, "영어":50, "과학":100}
+    for subject, score in scores.items():
+        print(subject.ljust(4), str(score).rjust(8), sep=":")
+    '''
+    수학  :       0
+    영어  :      50
+    과학  :     100
+    '''
+    ```
   - #### zfill
 
 		* 채우기 기능
