@@ -51,9 +51,8 @@
     ```
   - #### zfill
 
-		* 채우기 기능
-		빈공간 0으로 채우기
-	
+	* 채우기 기능  
+	빈공간 0으로 채우기
 		```python
 		for i in range(1,21):
 		    print("대기번호"+ str(i).zfill(3))
@@ -67,7 +66,7 @@
 		'''
 		```
 	
-		* 정수타입일 경우 0채우기
+	* 정수타입일 경우 0채우기
 		```python
 		target = 2
 		a = format(target, '03')
