@@ -87,7 +87,7 @@ def 함수이름(전달값1, 전달값2, ..., *가변인자):
 '''
 
 def profile(name, age, *language): # *language는 튜플로 반환된다.
-    print("이름은 {0}이고 나이는 {1}살이며, 사용가능한 언어는".format("name", age), end=" ")
+    print("이름은 {0}이고 나이는 {1}살이며, 사용가능한 언어는".format(name, age), end=" ")
     #end=" " 이 구문이 없으면 자동으로 줄바꿈이 된다. 하지만 구문을 넣음으로써 줄바꿈대신 스페이스로 대체된다.
     for lang in language: #language는 튜플형식이다.
         print("{0}".format(lang), end=" ") # =print(lang,end=" ")
@@ -134,7 +134,7 @@ def check_gun(gun,use_gun):
 
 print("전체 총 : {0}" .format(gun))
 gun = check_gun(gun, 2) #현재 총갯수, 사용한 총 매개변수로 사용
-rint("남은 총 : {0}" .format(gun))
+print("남은 총 : {0}" .format(gun))
 
 '''
 전체 총 : 10
