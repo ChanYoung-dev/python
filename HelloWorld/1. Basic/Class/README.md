@@ -1,9 +1,11 @@
 # 클래스
-# 클래스의 필요성
 
-# ex)스타크래프트
+## 1. 클래스의 필요성
 
-# 마린
+- #### ex)스타크래프트
+---
+#### 마린
+```python
 marine_name = "마린" # 이름
 marine_hp = 40 # 체력
 marine_damage = 5 # 공격력
@@ -15,8 +17,9 @@ print("체력 {0}, 공격력 {1}\n".format(marine_hp, marine_damage))
 마린 유닛이 생성되었습니다.
 체력 40, 공격력 5
 '''
-
-# 탱크
+```
+#### 탱크
+```
 tank_name = "탱크"
 tank_hp = 150
 tank_damage = 35
@@ -27,20 +30,23 @@ tank_damage = 35
 
 print("{} 유닛이 생성되었습니다.".format(tank_name))
 print("체력 {0}, 공격력 {1}\n".format(tank_hp, tank_damage))
-
-# 탱크 2
+```
+#### 탱크 2
+```python
 tank2_name = "탱크"
 tank2_hp = 150
 tank2_damage = 35
 
 print("{} 유닛이 생성되었습니다.".format(tank2_name))
 print("체력 {0}, 공격력 {1}\n".format(tank2_hp, tank2_damage))
+```
 
+이런 식으로 계속 하다간 너무 오래걸려 객체로 묶는 클래스로 구현하는 방법이 생겼다.
 
-# 이런 식으로 계속 하다간 너무 오래걸림
+## 2. 클래스
+- ### 구조
 
-# 클래스를 사용하자
-# 구조
+```python
 '''
 class 클래스명:
     def 메소드1(self, 전달값1, 전달값2, ...):
@@ -53,8 +59,11 @@ class 클래스명:
         실행명령문2
         ...
 '''
+```
 
-# 위 유닛들을 클래스로 작성
+- ### 위 유닛들을 클래스로 작성
+
+```python
 class Unit:
     def __init__(self, name, hp, damage):
         self.name = name #멤버변수
@@ -74,23 +83,27 @@ tank2 = Unit("탱크", 150, 35)
 탱크 유닛이 생성되었습니다.
 체력 150, 공격력 35
 '''
+```
+## 3. __init__
+__init__는 생성자와 같다. 사용자가 따로 호출하지 않아도 클래스 객체를 생성할 때 자동적으로 호출된다.  
+이 때, 전달값에 해당하는 갯수만큼 넘겨줘야한다.
 
-# __init__
-# __init__는 생성자와 같다. 사용자가 따로 호출하지 않아도 클래스 객체를 생성할 때 자동적으로 호출된다.
-# 이 때, 전달값에 해당하는 갯수만큼 넘겨줘야한다.
-
-
-# 위 코드를 기반으로 봤을때
-# marine2= Unit("마린")
+- - -
+예제) 위 코드를 기반으로 봤을때
+```python
+marine2= Unit("마린")
 # TypeError: __init__() missing 2 required positional arguments: 'hp' and 'damage'
-# 위처럼 2개의 인자에 대한 값을 넘기라고 오류가 뜬다.
+```
+위처럼 2개의 인자에 대한 값을 넘기라고 오류가 뜬다.
 
-# 멤버변수
-# 클래스 내에서 정의된 변수, self.와 함께 사용
-# 클래스 내에서는 self.로 멤버변수 접근
-# 클래스 외부에서는 객체 이름뒤에 .을 찍고 접근
+## 4. 멤버변수
+클래스 내에서 정의된 변수, self.와 함께 사용  
+클래스 내에서는 self.로 멤버변수 접근  
+클래스 외부에서는 객체 이름뒤에 .을 찍고 접근   
 
-# 레이스 : 공중유닛, 비행기, 클로킹 기능
+- - -
+클로킹 기능
+```python
 wraith = Unit("레이스", 80, 5)
 print("유닛 이름 : {0}, 공격력 : {1}".format(wraith.name, wraith.damage))
 
@@ -103,34 +116,52 @@ wraith2.cloaking = True
 # 클로킹 확인
 if wraith2.cloaking == True:
     print("{0}은 클로킹 상태입니다.".format(wraith2.name)) #외부에서 호출하기때문에 객체이름뒤에 .으로 호출
-
+```
+이와 같이 클래스로부터 객체를 만든 다음 그 객체만을 위한 멤버 변수 정의가 필요한 경우  
+클래스 외부에서 별도로 정의할 수 있다.
+- - -
+객체만 아닌 그 인스턴스만 가능하다.
+| wraith1의 멤버 변수 | wraith2의 멤버변수 |
+| ------------------- | ------------------ |
+| name                | name               |
+| hp                  | hp                 |
+| damage              | damage             |
+|                     | ***cloaking***     |
+```python
 # 내가 만든 레이스 클로킹 확인
 #if wraith1.cloaking == True:
 #    print("{0}은 클로킹 상태입니다.".format(wraith1.name))
 # NameError: name 'wraith1' is not defined 다음과 같은 오류가 뜬다.
+'''
 # Unit클래스에는 3개의 멤버변수(name, hp, damage)밖에 없기 때문이다.
 # wraith2는 클래스 외부에서 직접 cloaking이라는 멤버 변수를 정의했었기때문에
 # 모든 Unit객체가 아닌 오직 wraith2에만 해당된다.
+'''
+```
 
+## 5. 메소드
+메소드는 한 클래스에서 여러가지함수를 작성할수 있다. 
+- ### 구조
 
-# 이와 같이 클래스로부터ㅓ 객체를 만든 다음 그 객체만을 위한 멤버 변수 정의가 필요한 경우
-# 클래스 외부에서 별도로 정의할 수 있다.
+```python
+Class A:
+	def 함수명:
+```
 
+------
 
-# 메소드
-# 메소드는 한 클래스에서 여러가지함수를 작성할수 있다.
-
+```python
 # 공격형 유닛 클래스 작성
 class AttackUnit:
     def __init__(self, name, hp, damage):
         self.name = name
         self.hp = hp
         self.damage = damage
-    def attack(self, location):
+    def attack(self, location): # 공격 함수
         print("{0} : {1}방향으로 적군을 공격합니다 . [ 공격력 {2} ]" \
               .format(self.name, location, self.damage)) # 보기 좋게 두줄로 나눌때 \ 사용
         # location 은 공격 방향이며, 명령을 받을 때마다 달라지고 외부에서 입력받기 때문에 self없이 전달
-    def damaged(self, damage):
+    def damaged(self, damage): # 데미지를 받았을때
         print("{0} : {1} 데미지를 입었습니다.".format(self.name, damage))  # 데미지 정보 출력
         self.hp -= damage  # 유닛의 체력에서 전달받은 damage 만큼 감소
         print("{0} : 현재 체력은 {1} 입니다.".format(self.name, self.hp))  # 남은 체력 출력
@@ -154,24 +185,30 @@ firebat.damaged(25) # 남은 체력 0 , 파괴
 파이어뱃 : 현재 체력은 0 입니다.
 파이어뱃 : 파괴되었습니다.
 '''
-
-# 상속
-# 공격형 유닛이 아닌 메딕을 만들어보자
-'''
-Unit클래스와 Attack 클래스는 공통점이 있다.
+```
+## 6. 상속
+공격형 유닛이 아닌 메딕을 만들어보자
+- - -
+Unit클래스와 Attack 클래스는 **공통점**이 있다.
 hp(체력)과 name(이름)이 있다는 점이다.
 모든 유닛의 공통적인 부분일 것이고 이 부분을 Unit 클래스로 정의하면
 나중에 다른 클래스(공격형,마법형) 등을 사용할때 상속하여 정의하면 된다.
-'''
 
-# 구조
-# class 자식클래스(상속받을 부모클래스):
+- - -
+
+- ### 구조
+
+```python
+class 자식클래스(상속받을 부모클래스):
+```
+- - -
+```python
 class Unit:
     def __init__(self, name, hp):
         self.name = name
         self.hp = hp
 
-class AttackUnit(Unit):
+class AttackUnit(Unit): #Unit를 상속받음
     def __init__(self, name, hp, damage):
         Unit.__init__(self, name, hp)
         self.damage = damage
@@ -193,15 +230,22 @@ firebat.attack("5시") # 5시로 공격
 firebat.damaged(25) # 공격1번받음
 #파이어뱃 : 25 데미지를 입었습니다.
 #파이어뱃 : 현재 체력은 25 입니다.
+```
+## 7. 다중상속
+공격력 없는 공중유닛 드랍쉽
+공격력 있는 공중유닛 레이스
+둘의 공통점 : 날 수 있다.
+날 수 있는기능 클래스를 만들자
+공통적으로 공중은 날라다니기때문에
+클래스 함수로는 날라가기가 있다. ex) AttackUnit의 attack느낌
 
-# 다중상속
-# 공격력 없는 공중유닛 드랍쉽
-# 공격력 있는 공중유닛 레이스
-# 둘의 공통점 : 날 수 있다.
-# 날 수 있는기능 클래스를 만들자
-# 공통적으로 공중은 날라다니기때문에
-# 클래스 함수로는 날라가기가 있다. ex) AttackUnit의 attack느낌
-
+- - -
+- ### 구조
+```python
+class 자식클래스(부모클래스1, 부모클래스2, ...):
+```
+![다중상속](/Users/gimchan-yeong/PycharmProjects/HelloWorld/1. Basic/Class/img/다중상속.png)
+```python
 class Flyable:
     def __init__(self, flying_speed):
         self.flying_speed = flying_speed
@@ -209,11 +253,13 @@ class Flyable:
     def fly(self, name, location):
         print("{0} : {1} 방향으로 날라갑니다. [ 속도 : {2} ] ".format(name, location, self.flying_speed))
         #AttackUnit의 attack 함수내 name은 self.name이다. 하지만 여기선 생성자에서 name이 생성안되어서 그냥 name이다.
-# 발키리  = 공중 + 공격유닛
-# 다중상속을 사용하자
-# 구조
-# class 자식클래스(부모클래스1, 부모클래스2, ...):
+```
+- - -
+발키리  = 공중 + 공격유닛
+다중상속을 사용하자
 
+- - -
+```python
 class FlyableAttackUnit(AttackUnit, Flyable):
     def __init__(self, name, hp, damage, flying_speed):
         AttackUnit.__init__(self, name, hp, damage)
@@ -222,11 +268,15 @@ class FlyableAttackUnit(AttackUnit, Flyable):
 # 발키리
 valkyrie = FlyableAttackUnit("발키리", 200, 6, 5)
 valkyrie.fly(valkyrie.name, "5시")
+```
 
-# 오버라이딩
-# 앞선 공중유닛에게는 공중속도가 있었다.
-# 하지만 지상유닛도 지상속도가 있다.
 
+## 8. 오버라이딩
+
+앞선 공중유닛에게는 공중속도(fly)가 있었다.
+하지만 지상유닛도 지상속도(move)가 있다.
+
+```python
 class Unit:
     def __init__(self, name, hp, speed): #speed 추가
         self.name = name
@@ -235,14 +285,18 @@ class Unit:
     def move(self, location): # 이동함수
         print(" {0} : {1} 방향으로 이동합니다. [ 속도 : {2} ]"\
               .format(self.name, location, self.speed))
-
-# Unit를 상속받는 클래스에서도 speed를 추가해줘야한다.
+```
+- - -
+Unit를 상속받는 클래스에서도 speed를 추가해줘야한다.
+```python
 class AttackUnit(Unit):
     def __init__(self, name, hp, speed, damage): # speed 추가
         Unit.__init__(self, name, hp, speed) # speed 추가
         self.damage = damage
-
-# 공중유닛은 지상속도가 0이기때문에 0을 대입해준다.
+```
+- - -
+공중유닛은 지상속도가 0이기때문에 0을 대입해준다.
+```python
 class FlyableAttackUnit(AttackUnit, Flyable):
     def __init__(self, name, hp, damage, flying_speed):
         AttackUnit.__init__(self, name, hp, 0, damage) # 지상 speed 0
@@ -257,10 +311,11 @@ battlecruiser = FlyableAttackUnit("배틀크루저", 500, 25, 3)
 
 vulture.move("11시")
 battlecruiser.fly(battlecruiser.name, "9시")
-
-# 하지만 지상유닛의 이동과 공중유닛의 이동은 공중과 지상의 차이일뿐 결국 같은 개념이다.
-# 오버라이딩 개념을 이용!
-
+```
+- - -
+하지만 지상유닛의 이동과 공중유닛의 이동은 공중과 지상의 차이일뿐 결국 같은 개념이다.
+오버라이딩 개념을 이용!
+```python
 class FlyableAttackUnit(AttackUnit, Flyable):
     def __init__(self, name, hp, damage, flying_speed):
         AttackUnit.__init__(self, name, hp, 0, damage)
@@ -279,8 +334,13 @@ battlecruiser.move("9시")
  벌쳐 : 11시 방향으로 이동합니다. [ 속도 : 10 ]
 배틀크루저 : 9시 방향으로 날라갑니다. [ 속도 : 3 ]
 '''
+```
+![Overriding](./img/overriding.png "오버라이딩")
+------
 
-# 전체코드
+- ### 현재까지 전체코드
+
+```python
 # 일반 유닛
 class Unit:
     def __init__(self, name, hp, speed):
@@ -303,7 +363,7 @@ class AttackUnit(Unit):
     def attack(self, location):
         print("{0} : {1} 방향으로 적군을 공격 합니다. [공격력 {2}]" \
             .format(self.name, location, self.damage))
-
+    
     def damaged(self, damage):
         print("{0} : {1} 데미지를 입었습니다.".format(self.name, damage))
         self.hp -= damage
@@ -340,11 +400,13 @@ vulture.move("11시")
 # battlecruiser.fly(battlecruiser.name, "9시")
 battlecruiser.move("9시") # 오버라이딩된 move() 호출
 
+```
+## 9. pass
+함수를 다 작성하지 않아도 오류가 생기지 않는다.  
+미완성하거나 나중에 작성할 것을 pass함수를 사용하면 된다.
 
-# pass
-# 함수를 다 작성하지 않아도 오류가 생기지 않는다.
-# 미완성하거나 나중에 작성할 것을 pass함수를 사용하면 도딘닫.
-
+- - -
+```python
 # 건물 클래스작성
 
 class BuildingUnit(Unit):
@@ -353,20 +415,24 @@ class BuildingUnit(Unit):
 
 supply_depot = BuildingUnit("서플라이 디폿", 500, "7시")
 # 실행시 오류가 없다.
+```
+## 10. super
+**super는 부모클래스에 접근하는 것**
 
-# super
-# super는 부모클래스에 접근하는 것
-
+```python
 class BuildingUnit(Unit):
     def __init__(self, name, hp, location):
         super().__init__(name, hp, 0)
         # super().__init__(self, name, hp, 0) self는 제외
         # = Unit.__init__(self, name, hp, 0)
         self.location = location
+```
 
-# 만약 부모클래스가 두개라면?
-# 제일 먼저 선언된 부모클래스로 한다.
-'''
+- - -
+Q) 만약 부모클래스가 두개라면?  
+A) 제일 먼저 선언된 부모클래스로 한다.
+
+```python
 class Unit:
     def __init__(self):
         print("Unit 생성자")
@@ -381,17 +447,27 @@ class FlyableUnit(Unit, Flyable):
 
 dropship = FlyableUnit()
 # Unit 생성자
+```
+super는 제일 먼저 생성된 Unit로 인식하는 것을 확인할 수 있다.
+## 11. 클래스 변수
+클래스 변수는 클래스 이름과 함께 어디서든지 사용가능.
+멤버변수는 각 클래스 객체마다 다른 값을 가진다면
+클래스 변수는 모든 객체가 동일한 값을 가진다
+- ### 구조
 
-# super는 제일 먼저 생성된 Unit로 인식
-'''
-# 클래스 변수
-# 클래스 변수는 클래스 이름과 함께 어디서든지 사용가능.
-# 멤버변수는 각 클래스 객체마다 다른 값을 가진다면
-# 클래스 변수는 모든 객체가 동일한 값을 가진다
+```python
+class 클래스명:
+    클래스변수 = False 
+    def __init__(self)
+```
+- ### 예제
+***
+##### 시즈모드
 
-# 시즈모드
+```python
 class Tank(AttackUnit):
     siege_developed = False # 시즈모드가 개발되었나.
+    #클래스변수
     def __init__(self):
         AttackUnit.__init__(self, "탱크", 150, 1, 35)
         self.siege_mode = False # 처음엔 시즈모드 해체상태이다.
@@ -408,7 +484,10 @@ class Tank(AttackUnit):
             print("{0} : 시즈모드를 시작합니다.".format(self.name))
             self.damage *= 2
             self.siege_mode = True
-#마
+```
+##### 마린
+
+```python
 class Marine(AttackUnit):
     def __init__(self):
         AttackUnit.__init__(self, "마린", 40, 1, 5) # 이름, 체력, 이동속도, 공격력
@@ -420,16 +499,24 @@ class Marine(AttackUnit):
             print("{0} : 스팀팩을 사용합니다. (HP 10 감소)".format(self.name))
         else:
             print("{0} : 체력이 부족하여 스팀팩을 사용하지 않습니다".format(self.name))
+```
 
-# 마린생성
+##### 마린생성
+
+```python
 m1 = Marine()
 m2 = Marine()
 m3 = Marine()
-# 탱크생성
+```
+##### 탱크생성
+
+```python
 t1 = Tank()
 t2 = Tank()
+```
+##### 유닛관리(부대지정) / append사용
 
-# 유닛관리(부대지정)
+```python
 attack_units = []
 attack_units.append(m1)
 attack_units.append(m2)
@@ -439,14 +526,23 @@ attack_units.append(t2)
 
 for unit in attack_units:
     unit.move("1시")
+```
+![종합](./img/result.png "종합")
 
+## 12. 인스턴스
+객체가 특정 인스턴스인지 여부를 확인
+각 유닛 객체들이 Marine 클래스의 인스턴스인지 Tank인지 여부 확인
+
+- ### 구조
+
+```python
+isinstance(객체, 클래스)
+```
+- - -
+```python
 # 시즈모드 개발
 Tank.siege_developed = True # 클래스변수이기때문에 클래스명 사용
 print("시즈모드 개발 완료")
-
-#인스턴스
-#객체가 특정 인스턴스인지 여부를 확인
-# 각 유닛 객체들이 Marine 클래스의 인스턴스인지 Tank인지 여부 확인
 
 for unit in attack_units:
     if isinstance(unit,Marine):
@@ -461,16 +557,23 @@ for unit in attack_units:
 from random import *
 for unit in attack_units:
     unit.damaged(randint(5, 20))
+```
+## 13. 퀴즈
+- ### 문제
+---
+```python
+Quiz) 주어진 코드를 활용하여 부동산 프로그램을 작성하시오.
 
+(출력 예제)
+총 3대의 매물이 있습니다.
+강남 아파트 매매 10억 2010년
+마포 오피스텔 전세 5억 2007년
+송파 빌라 월세 500/50 2000년
+```
 
-# Quiz) 주어진 코드를 활용하여 부동산 프로그램을 작성하시오.
-#
-# (출력 예제)
-# 총 3대의 매물이 있습니다.
-# 강남 아파트 매매 10억 2010년
-# 마포 오피스텔 전세 5억 2007년
-# 송파 빌라 월세 500/50 2000년
-
+- ### 해답
+---
+```python
 class House:
     # 매물 초기화 : 위치, 건물 종류, 매물 종류, 가격, 준공년도
     def __init__(self, location, house_type, deal_type, price, completion_year):
@@ -494,3 +597,4 @@ houses.append(house2)
 houses.append(house3)
 for house in houses:
     house.show_detail()
+```
