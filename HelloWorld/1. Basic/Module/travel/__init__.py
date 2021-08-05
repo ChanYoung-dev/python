@@ -1,0 +1,1 @@
+__all__ = ["vietnam", "thailand"] # 베트남 공개설정 모두에게
