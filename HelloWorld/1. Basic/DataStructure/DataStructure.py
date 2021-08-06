@@ -177,6 +177,44 @@ print(people) # {'유재석','박명수'} -> {'유재석', '박명수', '김태�
 people2.remove("김태호")
 print(people2) # {'유재석', '양세형', '김태호'} -> {'유재석', '양세형'}
 
+# 세트 응용
+national_anthem = '''
+동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 
+무궁화 삼천리 화려 강산 대한사람 대한으로 길이 보전하세 
+남산 위에 저 소나무 철갑을 두른듯 바람서리 불변함은 우리 기상일세 
+무궁화 삼천리 화려 강산 대한사람 대한으로 길이 보전하세 
+가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 
+무궁화 삼천리 화려 강산 대한사람 대한으로 길이 보전하세 
+이 기상과 이 마음으로 충성을 다하여 괴로우나 즐거우나 나라사랑하세 
+무궁화 삼천리 화려 강산 대한사람 대한으로 길이 보전하세
+'''
+# print(national_anthem)
+national_anthem = national_anthem.replace('\n', '')
+# print(national_anthem)
+
+# '대한'이란 단어의 개수
+print('애국가에는 "대한"이란 문자열이 {}개 나타납니다.'.format(national_anthem.count('대한')))
+# 공백으로 구분하여 list로 만들기
+word_list = national_anthem.split(' ')
+# 전체 단어 수
+print('애국가에 사용된 단어 수는 총 {}개 입니다.'.format(len(word_list)))
+# 단어를 set으로 만들기
+word_set = set(word_list)
+print('애국가에는 총 {}개 단어가 사용되었습니다.'.format(len(word_set)))
+print('애국가에는 총 {}개 단어가 중복 사용되었습니다.'.format(len(word_list)-len(word_set)))
+
+# 중복되지않는 번호뽑기
+from random import *
+for i in range(1,6):
+    lottoset=set()
+    while len(lottoset) < 6:
+        lottoset.add(randint(1,45))
+    print(sorted(lottoset))
+
+
+# 단어 출력
+# for str in word_set:
+#     print('[',str,']')
 #자료구조의 변경
 #자료구조도 변경이 가능하다
 
@@ -196,3 +234,4 @@ print(menu, type(menu))
 #세트로 변환
 menu= set(menu)
 print(menu, type(menu))
+

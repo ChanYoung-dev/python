@@ -29,29 +29,38 @@ else:
 ```
 - ### 활용
 
-cf) input응용
-input은 입력받는 것이다. 항상 **문자열**로 입력받기때문에, 숫자 3을 입력해도 문자열 "3"으로 인식한다.
-
-```python
-weather = input("오늘 날씨 어때요? ")
-print(weather)
-# 오늘 날씨 어때요? '좋아' (입력시)
-# 좋아
-
-->if문 and나 or 연산자 응용
-temp = int(input("기온은 어때요? ")) #문자열인식 받는 것을 정수형으로 변환
-if 30 <=temp: #30도이상
-    print("너무 더워요. 나가지 마세요")
-elif 10 <= temp and temp < 30: # 10도 이상 30도 미만
-    print("괜찮은 날씨에요")
-elif 0 <= temp and temp < 10: # 0도 이상 10도 미만이면
-# 위 비교 문장은
-# elif 0 <= temp < 10:
-# 과 같다.
-    print("외투를 챙기세요")
-else: # 그 외의 모든 경우
-    print("너무 춥다")
-```
+    cf) input응용
+    input은 입력받는 것이다. 항상 **문자열**로 입력받기때문에, 숫자 3을 입력해도 문자열 "3"으로 인식한다.
+    
+    ```python
+    weather = input("오늘 날씨 어때요? ")
+    print(weather)
+    # 오늘 날씨 어때요? '좋아' (입력시)
+    # 좋아
+    
+    ->if문 and나 or 연산자 응용
+    temp = int(input("기온은 어때요? ")) #문자열인식 받는 것을 정수형으로 변환
+    if 30 <=temp: #30도이상
+        print("너무 더워요. 나가지 마세요")
+    elif 10 <= temp and temp < 30: # 10도 이상 30도 미만
+        print("괜찮은 날씨에요")
+    elif 0 <= temp and temp < 10: # 0도 이상 10도 미만이면
+    # 위 비교 문장은
+    # elif 0 <= temp < 10:
+    # 과 같다.
+        print("외투를 챙기세요")
+    else: # 그 외의 모든 경우
+        print("너무 춥다")
+    ```
+    - ### 3항연산자
+    참일때 값 if 조건 else 거짓일때값
+    ```python
+    a=1
+    b=1
+    print("같다" if a==b else "틀리다")
+    # 같
+    ```
+    
 
 ## 2. for
 ```
@@ -219,8 +228,15 @@ print(students)
 ```
 
 
-
-## 6. 퀴즈
+## 6. assert
+디버깅용도이다.
+```
+a = 10
+assert a > 5 # 아무 결과 값 없다
+assert a < 5 #AssertionError
+assert a < 5, "a의 값이 너무 큽니다." # AssertionError: a의 값이 너무 큽니다.
+```
+## 7. 퀴즈
 - ### 문제
 
 

@@ -21,8 +21,10 @@ is_adult = age >= 3
 print("우리집" + animal + "의 이름은 " + name + "에요")
 hobby = "공놀이" #중간에 바꿀 수 있음.
 print(name + "는 " + str(age) + "살이며, " + hobby + "을 아주 좋아해요") #변수형은 문장안에 넣을때 str을 해줘야한다.
-# =print(name, "는 ", age, "살이며, ", hobby, "을 아주 좋아해요") 
+print(name, "는 ", age, "살이며, ", hobby, "을 아주 좋아해요") 
 # 결과는 같고 변수에 str을 해줄 필요가 없다..그러나 공백이 포함된다.
+print(name, "는 ", age, "살이며, ", hobby, "을 아주 좋아해요", sep='')
+#sep을 넣어주면 공백이 없어진다. default가 sep=' '이기때문에 공백이 들어간것이다. 
 print(name + "는 어른일까요? " + str(is_adult))
 
 ->연산자
@@ -89,6 +91,7 @@ print(python.upper()) # 전부 대문자로 바꾸기
 print(python[0].isupper()) # 0번째자리가 대문자인가? True
 print(len(python)) #문자열 길이
 print(python.replace("Python", "Java")) #Java is Amazing
+print(python.replace("!", "^-^", 2)) # 3번째 인자 갯수만큼 바꾸어준다. #Python is Amazing^-^^-^
 #Python문자열부분을 Java로 바꾸기
 print(python) # Pythio is Amazing. 저장은 안됀다.
 
@@ -103,7 +106,35 @@ print(python.index("Python")) #  있으면 0 없으면 오류
 print(python.count("n")) # n 카운터
 ```
 
+- ## 변환함수
+>ord : 문자의 아스키 코드값을 리턴하는 함수  
+>hex : hex(x)는 정수값을 입력받아 16진수(hexadecimal)로 변환하여 리턴하는 함수  
+>otc : oct(x)는 정수 형태의 숫자를 8진수 문자열로 바꾸어 리턴하는 함수  
+>chr : 아스키(ASCII) 코드값을 입력으로 받아 그 코드에 해당하는 문자를 리턴하는 함수  
+>capitalize : 단어의 첫글자만 대문자로 변환하는 함수  
+```
+print(ord("A"))       # 65
+print(hex(ord("A")))  # 0x41
+print(oct(ord("A")))  # 0o101
 
+# chr : 아스키(ASCII) 코드값을 입력으로 받아 그 코드에 해당하는 문자를 리턴하는 함수
+print(chr(65))        # A
+print(chr(0x41))      # A
+
+# 대소문자 변환
+print(chr(ord('A')+32))  # a
+print(chr(ord('Z')+32))  # z
+print(chr(ord('a')-32))  # A
+print(chr(ord('z')-32))  # Z
+
+# 1자리 숫자 문자열을 숫자로 변환
+print(ord('1') - ord('0'), type(ord('1') - ord('0'))) # 1 <class 'int'>
+print(ord('9') - ord('0'), type(ord('9') - ord('0'))) # 9 <class 'int'>
+
+# 1자리 숫자를 숫자 문자열로 변환
+print(chr(1 + ord('0')), type(chr(1 + ord('0')))) # 1 <class 'str'>
+print(chr(9 + ord('0')), type(chr(9 + ord('0')))) # 9 <class 'str'>
+```
 
 
 - ##  문자열 표
@@ -112,8 +143,10 @@ print(python.count("n")) # n 카운터
 	print("나는 %d살입니다." % 20)
 	print("나는 %s을 좋아해요." % "파이썬")
 	print("Apple은 %c로 시작해요." % "A")
+	print('나이는 %03d세이고 신장은 %6.2f입니다. 나의 이름은 "%s"입니다. '%(33,56.789,'한사람'))
+	#나이는 033세이고 신장은  56.79입니다. 나의 이름은 "한사람"입니다. 
 	```
-
+	
 	- #### %s는 다 포함할 수 있다.
 	```python
 	print("나는 %s살입니다. " % 20)
@@ -126,12 +159,12 @@ print(python.count("n")) # n 카운터
 	print("나는 {0}색과 {1}색을 좋아해요.".format("파란", "빨간"))
 	print("나는 {1}색과 {0}색을 좋아해요.".format("파란", "빨간"))
 	```
-
+	
 	- #### 다른 방법2
 	```python
 	print("나는 {age}살이며 {color}색을 좋아해요.".format(age=20, color="빨간"))
 	```
-
+	
 	- #### 다른 방법 3 (v3.6이상)
 	```python
 	age = 20
@@ -148,7 +181,7 @@ print(python.count("n")) # n 카운터
 	 ```python
 	  print("백문이 불여일견 \n백견이 불여일타")
 	   # 백문이 불여일견
-	   # 백견이 불여일타
+	   # 백견이 불여일타 
 	 ```
 	
 	- ####   \\',\ \" -> 저는 "나도코딩"입니다.
@@ -215,4 +248,77 @@ print("url은 {1}이며, 비밀번호는 {0}입니다.".format(password, url))
 print("url은 %s이며, 비밀번호는 %s입니다."%(url, password))
 '''
 ```
+
+- - -
+## 추가 
+- ### 행분리 : 역슬레시, 괄호
+긴 내용을 한줄인것 처럼 인식 시키기(\ 사용)
+```python
+a = 1 + 2 + 3 + \
+      4 + 5 + 6
+```
+긴 내용을 한줄인것 처럼 인식 시키기(괄호 사용
+```python
+b = (1 + 2 + 3 +
+        4 + 5 + 6)
+```
+파라메터를 넘기는 것이라면 콤마(comma) 뒤에서 그냥 엔터를 쓰면 됩니다.
+```python
+print("Hello",  "Python",
+          end="\n", sep="\t")
+```
+문자열 중간에 줄바꿈을 하면 자동으로 ""가 열고닫히며 1줄로 인식한다.
+```python
+print("아주 아주 아주 긴 문자열이라고 가정하자 " 
+         "한줄에 모두 타이핑이 힘들다면")
+```
+- ### 여러개 변수에 여러값 할당하기
+```python
+a=b=c="모두같은 값"
+print("a의 값 : {}".format(a))
+print("b의 값 : {}".format(b))
+print("c의 값 : {}".format(c))
+
+d,e,f = "한사람",23,178.9
+print("d의 값 : {}".format(d))
+print("e의 값 : {}".format(e))
+print("f의 값 : {}".format(f))
+'''
+a의 값 : 모두같은 값
+b의 값 : 모두같은 값
+c의 값 : 모두같은 값
+d의 값 : 한사람
+e의 값 : 23
+f의 값 : 178.9
+'''
+
+```
+- ### SWAP
+```python
+g,h = 100,200
+print("g의 값 : {}, h의 값 :{}".format(g,h))
+g,h = h,g
+print("g의 값 : {}, h의 값 :{}".format(g,h))
+'''
+g의 값 : 100, h의 값 :200
+g의 값 : 200, h의 값 :100
+'''
+```
+- ### 리터럴
+0b 2진수  
+0o 8진수  
+0x 16진수  
+j로 끝나면 복소수의 허수
+```python
+a = 0b1010
+b = 0o310
+c = 0x12c
+d = 1.1 + 3.14j
+print(a, b, c)
+print(x, x.real, x.imag)
+
+10 200 300 
+(1.1+3.14j) 1.1 3.14
+```
+참조 :   https://wikidocs.net/20369       
 

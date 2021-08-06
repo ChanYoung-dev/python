@@ -61,12 +61,13 @@ print("뒤 7자리 : " + jumin[7:])
 print("뒤 7자리 (뒤에서부터) : " + jumin[-7:]) # 990120-1234567 에서 맨 마지막자리인 7은 -1번째이다 =jumin[-1] 그러므로 1은 jumin[-7]이다.
 
 #문자열 처리
-python = "Python is Amazing"
+python = "Python is Amazing!!"
 print(python.lower()) # 전부 소문자로 바꾸기
 print(python.upper()) # 전부 대문자로 바꾸기
 print(python[0].isupper()) # 0번째자리가 대문자인가? True
 print(len(python)) #문자열 길이
 print(python.replace("Python", "Java")) #Python문자열부분을 Java로 바꾸기
+print(python.replace("!", "^-^", 2)) # 3번째 인자 갯수만큼 바꾸어준다. #Python is Amazing^-^^-^
 print(python) # 저장은 안됀다.
 
 index = python.index("n") # n은 몇번째에 있을
@@ -123,3 +124,6 @@ print("Red Appleeeeee\rPine A") #Pine A
 
 # \b : 백스페이스 (한 글자 삭제)
 print("Redd\bApple")
+
+str_="adfwef"
+print(str_[1])

@@ -175,3 +175,17 @@ students = ["a", "bc", "de f"]
 students = [i.upper() for i in students]
 print(students)
 #['A', 'BC', 'DE F']
+
+# 3중 if문
+a=1
+b=2
+print("같다" if a==b else "틀리다")
+# 같다
+
+# assert
+# 디버깅용도a = 10
+assert a > 5
+#assert a < 5
+# AssertionError
+#assert a < 5, "a의 값이 너무 큽니다."
+# AssertionError: a의 값이 너무 큽니다.
