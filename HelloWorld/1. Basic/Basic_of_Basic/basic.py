@@ -49,6 +49,33 @@ sentence = '나는 소년입니다' # = "나는 소년입니다"
 sentence2 = """나는 소년이고,
 파이썬은 쉬워요"""
 print(sentence2)
+num = 123456
+print("num:".format(num, type(num)))
+str_num = str(num) # 문자열 변환
+print("str_num:{0},type: {1}, str_num[0] : {2} ".format(str_num, type(str_num), str_num[0]))
+str_list = list(str_num) # 문자열을 리스트로 변환
+str_list.reverse() # reverse는 리스트에서만 사용할 수 있기때문에 리스트로 변환해준
+print("str_list(reverse)  : {0} type: {1}".format(str_list, type(str_list)))
+str_list=''.join(str_list) # 리스트에서 문자열로 변환해준다.
+print("str_list(reverse)  : {0} type: {1}".format(str_list, type(str_list)))
+
+str = "가 나 다 라 마"
+print("str : {0} type: {1}".format(str, type(str)))
+# str : 가 나 다 라 마 type: <class 'str'>
+
+str_split = str.split(" ") # list로 바뀐다.
+print("str_split : {0} type: {1}".format(str_split, type(str_split)))
+# str_split : ['가', '나', '다', '라', '마'] type: <class 'list'>
+
+str_join_comma = ','.join(str_split) # str로 바뀐다
+print("str_join_comma : {0} type: {1}".format(str_join_comma, type(str_join_comma)))
+# str_join_comma : 가,나,다,라,마 type: <class 'str'>
+
+str_join_empty = ''.join(str_split) # str로 바뀐다
+print("str_join_empty : {0} type: {1}".format(str_join_empty, type(str_join_empty)))
+# str_join_empty : 가나다라마 type: <class 'str'>
+
+
 
 #슬라이싱
 jumin = "990120-1234567"

@@ -43,6 +43,7 @@ print(max(5,12)) # 12
 print(min(5,12)) # 5
 print(round(3.14)) # 3 반올림
 print(round(4.99)) # 5 반올림
+print(divmod(10, 3))  # (3.0, 1.0) 몫과 나머지
 
 from math import *
 print(floor(4.99)) # 4 내림
@@ -64,8 +65,15 @@ sentence2 = """나는 소년이고,
 파이썬은 쉬워요"""
 print(sentence2)
 ```
+- ## 숫자열 분리하기
+```python
+birth = 19920822
+year = birth//10000 # 1992
+month1 = birth%10000//100 #08
+month2 = birth//100%100 #08
+date = birth%100 # 22
 
-
+```
 
 
 - ##  슬라이싱
@@ -105,6 +113,49 @@ print(python.index("Python")) #  있으면 0 없으면 오류
 
 print(python.count("n")) # n 카운터
 ```
+- ## 문자열 나누기, 합치기
+    > 나누기 : 문자열.split(self, sep=None, maxsplit=-1)
+      합치기 : 문자열.join(self, iterable)
+    ```python
+    str = "가 나 다 라 마"
+    print("str : {0} type: {1}".format(str, type(str)))
+    # str : 가 나 다 라 마 type: <class 'str'>
+    
+    str_split = str.split(" ") # list로 바뀐다.
+    print("str_split : {0} type: {1}".format(str_split, type(str_split)))
+    # str_split : ['가', '나', '다', '라', '마'] type: <class 'list'>
+    
+    str_join_comma = ','.join(str_split) # str로 바뀐다
+    print("str_join_comma : {0} type: {1}".format(str_join_comma, type(str_join_comma)))
+    # str_join_comma : 가,나,다,라,마 type: <class 'str'>
+    
+    str_join_empty = ''.join(str_split) # str로 바뀐다
+    print("str_join_empty : {0} type: {1}".format(str_join_empty, type(str_join_empty)))
+    # str_join_empty : 가나다라마 type: <class 'str'>
+    ```
+    - ### 응용
+    숫자 / 문자열 뒤집기
+    ```python
+    num = 123456
+    print("num:{0}".format(num)) #123456
+  
+    str_num = str(num) # 문자열 변환
+    print("str_num:{0},type: {1}, str_num[0] : {2} ".format(str_num, type(str_num), str_num[0]))
+    # str_num:123456,type: <class 'str'>, str_num[0] : 1 
+  
+    str_list = list(str_num) # 문자열을 리스트로 변환
+    str_list.reverse() # reverse는 리스트에서만 사용할 수 있기때문에 리스트로 변환해준다 
+    print("str_list(reverse)  : {0} type: {1}".format(str_list, type(str_list)))  
+    # str_list(reverse)  : ['6', '5', '4', '3', '2', '1'] type: <class 'list'>
+  
+    str_list=''.join(str_list) # 리스트에서 문자열로 변환해준다.
+    print("str_list(reverse)  : {0} type: {1}".format(str_list, type(str_list)))
+    # str_list(reverse)  : 654321 type: <class 'str'>
+    ```
+
+
+
+
 
 - ## 변환함수
 >ord : 문자의 아스키 코드값을 리턴하는 함수  
