@@ -6,5 +6,7 @@
 
 ### [1. Basic](https://github.com/ChanYoung-dev/pythonBasic/blob/master/HelloWorld/1.%20Basic/README.md "basic")
 
-### [2. CodingTEST](https://github.com/ChanYoung-dev/pythonBasic/blob/master/HelloWorld/2.%20CodingTEST/README.md "codingTEST")
+### 2. codingTEST
+
+- [Level 1](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/2.%20CodingTEST/Level%201 "level1")
 

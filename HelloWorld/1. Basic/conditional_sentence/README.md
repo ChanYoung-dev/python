@@ -198,8 +198,8 @@ for student in range(1, 11):
 '''
 ```
 
-## 5. 한 줄 for
-- ### 기본
+## 5. 한 줄 for, 한줄 if
+- ### for 기본
 
 ```python
 students =[1, 2, 3, 4, 5]
@@ -226,7 +226,31 @@ students = [i.upper() for i in students]
 print(students)
 #['A', 'BC', 'DE F']
 ```
+- ### 한 줄 if 기본
+```python
+a=1
+b=2
+print("같다" if a==b else "틀리다")
+# 같다
+```
 
+- ### 활용
+```python
+# 윤년 판단 규칙
+# 1. 년도가 4로 나누어떨어지는 해는 윤년입니다. (1996년, 2004년, 2008년, 2012년 …)
+# 2. 이 중에서 100으로 나누어떨어지는 해는 평년입니다. (1900년, 2100년, 2200년, 2300년 …)
+# 3. 그중에 400으로 나누어떨어지는 해는 윤년입니다. (1600년, 2000년, 2400년 …)
+```
+- - -
+```python
+while True:
+    year = int(input('년도를 입력하시오(0은 종료)'))
+    if not year:
+        break
+    print('윤년' if year%400==0 or year%4==0 and year%100!=0 else '평년')
+    # print('윤년' if year%400==0 or year%4==0 and year%100 else '평년')
+    # print('윤년' if not year%400 or not year%4 and year%100 else '평년')
+```
 
 ## 6. assert
 디버깅용도이다.
