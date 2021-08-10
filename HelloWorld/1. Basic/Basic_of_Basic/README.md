@@ -190,7 +190,44 @@ print(ord('9') - ord('0'), type(ord('9') - ord('0'))) # 9 <class 'int'>
 print(chr(1 + ord('0')), type(chr(1 + ord('0')))) # 1 <class 'str'>
 print(chr(9 + ord('0')), type(chr(9 + ord('0')))) # 9 <class 'str'>
 ```
+- - -
+```python
+# 진법 초기화
+a = 10
+print(type(a), a)
+a = 0b10
+print(type(a), a)
+a = 0o10
+print(type(a), a)
+a = 0x10
+print(type(a), a)
+print()
+a = 0B10
+print(type(a), a)
+a = 0O10
+print(type(a), a)
+a = 0X10
+print(type(a), a)
+print("-"*20)
 
+# 출력
+i = 0x100
+print("i = ", i)
+print("i = ", bin(i))
+print("i = ", int(i))
+print("i = ", oct(i))
+print("i = ", hex(i))
+print("-"*20)
+
+# 문자열을 형변환
+i = "111"
+print("i = ", int(i)) # 111
+print("i = ", int(i, 2)) # 7
+print("i = ", int(i, 8)) # 73
+print("i = ", int(i, 16)) # 273
+print("i = ", int(i, 5)) # 31
+print("-"*20)
+```
 
 - ##  문자열 표
 	- #### 기본
