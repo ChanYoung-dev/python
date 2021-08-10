@@ -257,13 +257,30 @@ while True:
 
 ## 6. assert
 디버깅용도이다.
-```
+```python
 a = 10
 assert a > 5 # 아무 결과 값 없다
 assert a < 5 #AssertionError
 assert a < 5, "a의 값이 너무 큽니다." # AssertionError: a의 값이 너무 큽니다.
 ```
-## 7. 퀴즈
+## 7. is
+>동일한 객체 여부를 판별하는 연산자입니다.  
+id() 함수는 객체를 입력값으로 받아서 객체의 고유값(레퍼런스)을 반환하는 함수입니다.  
+id는 파이썬이 객체를 구별하기 위해서 부여하는 일련번호입니다. 숫자로서 의미는 없습니다.  
+id는 동일한 객체 여부를 판별할 때 사용합니다.  
+```python
+a = 10
+b = 10
+c = 11
+print(a, 'id =', id(a)) # 4365484080
+print(b, 'id =', id(b)) # 4365484080
+print(c, 'id =', id(c)) # 4365484112
+print('같은 객체' if a is b else '다른 객체') # 같은 객체
+print('같은 객체' if a is c else '다른 객체') # 다른 객체
+c=10
+print('같은 객체' if a is c else '다른 객체') # 같은 객체
+```
+## 8. 퀴즈
 - ### 문제
 
 

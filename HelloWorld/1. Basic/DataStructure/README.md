@@ -603,8 +603,65 @@ print(menu, type(menu))
 menu= set(menu)
 print(menu, type(menu))
 ```
+## 6. enumerate
+> 리스트의 인덱스값과 실제 값을 보여준다.
+```python
+data = enumerate((1, 2, 3))
+print(data, type(data))
 
-## 6. 퀴즈
+for i, value in data:
+    print(i, ":", value)
+print()
+
+data = enumerate({1, 2, 3})
+for i, value in data:
+    print(i, ":", value)
+print()
+
+data = enumerate([1, 2, 3])
+for i, value in data:
+    print(i, ":", value)
+print()
+
+dict1 = {'이름': '한사람', '나이': 33}
+data = enumerate(dict1)
+for i, key in data:
+    print(i, ":", key, dict1[key])
+print()
+
+data = enumerate("재미있는 파이썬")
+for i, value in data:
+    print(i, ":", value)
+print()
+```
+- - -
+```
+<enumerate object at 0x0000000002424EA0> <class 'enumerate'>
+0 : 1
+1 : 2
+2 : 3
+
+0 : 1
+1 : 2
+2 : 3
+
+0 : 1
+1 : 2
+2 : 3
+
+0 : 이름 한사람
+1 : 나이 33
+
+0 : 재
+1 : 미
+2 : 있
+3 : 는
+4 :  
+5 : 파
+6 : 이
+7 : 썬
+```
+## 7. 퀴즈
 ### 문제
 ```
 DataStructure.py에서 배운 것을 토대로 퀴즈풀기
