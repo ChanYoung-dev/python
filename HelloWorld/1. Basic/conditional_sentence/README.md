@@ -232,6 +232,9 @@ a=1
 b=2
 print("같다" if a==b else "틀리다")
 # 같다
+list1 = [2, 3, 4, 5, 6, 7, 8]
+print('9는 없다' if 9 not in list1 else '9는 있다')
+# 9는 없다
 ```
 
 - ### 활용
