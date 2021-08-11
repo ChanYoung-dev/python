@@ -4,9 +4,10 @@
 
 # Contents
 
-### 1.Basic 
+### 1.Basic - [Full version(종합)](https://github.com/ChanYoung-dev/pythonBasic/blob/master/HelloWorld/1.%20Basic/Full.md "full")
 
 - [Beginner of Basic](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/Basic_of_Basic "basic")
+
 - [DataStructure](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/DataStructure "datastructure")
 - [Conditional_Sentence](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/conditional_sentence "conditional_sentence")
 - [Function&Variable](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/function&variable "function&variable")
