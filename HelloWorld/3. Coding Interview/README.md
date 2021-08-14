@@ -9,5 +9,5 @@
 ### [2. CodingTEST](https://github.com/ChanYoung-dev/pythonBasic/blob/master/HelloWorld/2.%20CodingTEST/README.md "codingTEST")
 
 ### 3. Coding Interview
-
-- [python](https://github.com/ChanYoung-dev/python/tree/master/HelloWorld/3.%20Coding%20Interview/python "python")
+- #### 1부 python
+  - [python](https://github.com/ChanYoung-dev/python/tree/master/HelloWorld/3.%20Coding%20Interview/python "python")
