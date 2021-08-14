@@ -150,3 +150,119 @@ print(locals())
 
 local_a와 local_b가 없다. -> 지역변수이기때문
 '''
+
+# 불변과 가변
+
+# str이 불변인 이유
+a = 'abc'
+print(id(a)) # 4555406768
+print(id('abc')) # 4555406768
+a = 'def'
+print(id(a)) # 4555913456
+print(id('def')) # 4555913456
+
+# abc는 사라지지않고 메모리 어딘가에 남아있다.
+# a[1] = 'd'
+# TypeError: 'str' object does not support item assignment
+# 불변이기때문에 안된다.
+
+# 불변
+a = 10
+b = a
+print(id(10), id(a), id(b)) # 4486029360 4486029360 4486029360
+a = 11
+print(id(a)) # 4308631632
+# 이로써 숫자와 문자열은 불변 객체임을 알 수가 있다.
+
+# 가변
+a = [1, 2, 3, 4, 5]
+b = a
+print(a, b) # [1, 2, 3, 4, 5] [1, 2, 3, 4, 5]
+a[2] = 4
+print(a, b) # [1, 2, 4, 4, 5] [1, 2, 4, 4, 5]
+
+# 리스트
+# 리스트의 활용방법
+# append
+a=[1,2,3]
+a.append(4)
+print(a) # [1, 2, 3, 4]
+
+# insert
+a.insert(3,5)
+print(a) # [1, 2, 3, 5, 4]
+
+# 슬라이싱
+print(a[1:4:2]) #인덱스 1,3의 값
+
+# 인덱스가 리스트 길이를 넘을경우
+#print(a[5]) # IndexError: list index out of range
+# 예외처리를 해주자
+try:
+    print(a[5])
+except IndexError:
+    print('존재하지않는 인덱스')
+
+
+# del
+del a[1]
+print(a) # [1, 3, 5, 4]
+
+#remove
+print(a) # [1, 5, 4]
+
+# pop
+print(a.pop(2)) # 5 / 값을 반환한다.
+
+# 딕셔너리 활용방법
+#초기화
+a = {}
+a = dict()
+
+a = {'key1':'value1', 'key2':'value2'}
+print(a) # {'key1': 'value1', 'key2': 'value2'}
+
+# 값 추가
+
+a['key3'] = 'value3'
+print(a) # {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}
+
+# 존재하지않는 인덱스를 조회할 경우
+# print(a['key4']) #KeyError: 'key4'
+# 예외처리를 해주자
+try:
+    print(a['key4'])
+except:
+    print('존재하지 않는 키')
+
+# 다음과 같은 방법으로 예외처리 가능
+print('key4' in a) # False
+if 'key4' in a:
+    print('존재하는 키')
+else:
+    print('존재하지 않는 키')
+
+# items를 이용하여 키/값 조회하기
+for k,v in a.items():
+    print(k,v)
+'''
+key1 value1
+key2 value2
+key3 value3
+'''
+
+# 딕셔너리 모듈
+import _collections
+# defaultdict
+# 존재하지 않는 키를 조회할경우 에러 메시지를 출력하는 대신 디폴트 값을 기준으로 해당 키에 대한 딕셔너리 아이템 생성
+a = _collections.defaultdict(int) # default가 int이다.
+print(int()) # int는 0이다.
+a['A'] = 5
+print(a) # defaultdict(<class 'int'>, {'A': 5})
+a['B'] += 1 # default 기준으로 +1을 해준다.
+print(a) # defaultdict(<class 'int'>, {'A': 5, 'B': 1})
+
+#Counter
+# 아이템에 대한 개수를 계산하여 딕셔너리로 반환
+a = [1, 2, 3, 4, 5, 5, 5, 6, 6]
+b = _collections.Counter(a) # 오류가 뜬다.  Counter가 삭제되었나?
