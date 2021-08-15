@@ -265,4 +265,4 @@ print(a) # defaultdict(<class 'int'>, {'A': 5, 'B': 1})
 #Counter
 # 아이템에 대한 개수를 계산하여 딕셔너리로 반환
 a = [1, 2, 3, 4, 5, 5, 5, 6, 6]
-b = _collections.Counter(a) # 오류가 뜬다.  Counter가 삭제되었나?
+# b = _collections.Counter(a) # 오류가 뜬다.  Counter가 삭제되었나?
