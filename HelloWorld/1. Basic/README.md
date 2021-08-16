@@ -7,7 +7,6 @@
 ### 1.Basic - [Full version(종합)](https://github.com/ChanYoung-dev/pythonBasic/blob/master/HelloWorld/1.%20Basic/Full.md "full")
 
 - [Beginner of Basic](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/Basic_of_Basic "basic")
-
 - [DataStructure](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/DataStructure "datastructure")
 - [Conditional_Sentence](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/conditional_sentence "conditional_sentence")
 - [Function&Variable](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/function&variable "function&variable")
@@ -15,6 +14,7 @@
 - [Class](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/Class "class")
 - [Exception_Handling](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/exception_Handling "예외처리")
 - [Module](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/Module "모듈")
+- [String](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/String "string")
 
 ### [2. CodingTEST](https://github.com/ChanYoung-dev/pythonBasic/blob/master/HelloWorld/2.%20CodingTEST/README.md "codingTEST")
 
