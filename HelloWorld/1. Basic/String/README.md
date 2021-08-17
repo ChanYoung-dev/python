@@ -1,3 +1,9 @@
+[TOC]
+
+[특수시퀸스](#6-특수-시퀸스)
+
+
+
 # 1. 슬라이싱
 ```python
 s = 'hellow'
@@ -236,3 +242,6 @@ print(re.search(r'@\B', s)) # <re.Match object; span=(1, 2), match='@'>
     print(re.fullmatch('^$', '\n')) # None
     print(re.findall('^$', '\n', re.M)) # ['', '']
     ```
+
+
+[1.-슬라이싱]: #2.-정규표현식(re)
