@@ -331,30 +331,31 @@ print(match_Object.groups()[1]) # 20
 # 소괄호 ( ) 앞에 r을 붙여줘야한다.
 
 # 앞뒤가 똑같은 문자열 찾기
-print(re.search(r'(\w)\w\1', '토마토 ABC aba xyxy ').group()) #토마토
+print(re.search(r'(\w)\w\1', '기러기 ABC aba xyxy ').group()) #기러기
 # 첫번째 캡처한 것은 맨처음(\w)이다.
-# 토마토 로 치면 '토'마토에서 앞 '토'를 캡처한 것이고
-# \1자리에 첫번째 캡처한 문자인 '토'와 같은 패턴을 추출한다.
+# 기러기 로 치면 '기'러기에서 앞 '기'를 캡처한 것이고
+# \1자리에 첫번째 캡처한 문자인 '기'와 같은 패턴을 추출한다.
 # 하지만 search이기때문에 처음 한번 검사를 하고 만다.
-
-print(re.findall(r'(\w)\w\1', '토마토 ABC aba xyxy ')) # ['토', 'a', 'x']
-#여러번 검사하여 앞뒤가 같은 문자인 토마토와 aba와 aba를 패턴을 찾지만 캡처만 반환하므로 (\w)부분만 반환한다.
+print(re.search(r'(\w)\w\1', '기러기 ABC aba xyxy ').group(1))
+print(re.search(r'(\w)\w\1', '기러기 ABC aba xyxy ').groups())
+print(re.findall(r'(\w)\w\1', '기러기 ABC aba xyxy ')) # ['기', 'a', 'x']
+#여러번 검사하여 앞뒤가 같은 문자인 기러기와 aba와 aba를 패턴을 찾지만 캡처만 반환하므로 (\w)부분만 반환한다.
 
 # 이럴 땐, 캡처를 하나 더 만들면 된다.
-match_List = re.findall(r'((\w)\w\2)', '토마토 ABC aba xyxy ')
-print(match_List) # [('토마토', '토'), ('aba', 'a'), ('xyx', 'x')]
-# 캡처의 우선순위가 바깥괄호가 우선이기때문에 첫번째 인자로 '토마토'가 나타나고 두번째 인자로 두번째캡처인 '토'가 나타난다.
+match_List = re.findall(r'((\w)\w\2)', '기러기 ABC aba xyxy ')
+print(match_List) # [('기러기', '기'), ('aba', 'a'), ('xyx', 'x')]
+# 캡처의 우선순위가 바깥괄호가 우선이기때문에 첫번째 인자로 '기러기'가 나타나고 두번째 인자로 두번째캡처인 '기'가 나타난다.
 for match in match_List:
     print(match[0],end=' ')
-#토마토 aba xyx
+#기러기 aba xyx
 
-match_Object_Iter = re.finditer(r'((\w)\w\2)', '토마토 ABC aba xyxy ')
+match_Object_Iter = re.finditer(r'((\w)\w\2)', '기러기 ABC aba xyxy ')
 print(match_Object_Iter)
 for match in match_Object_Iter:
     print('찾은 패턴: {}, 캡처한 패턴: {}, 첫번째 캡처: {}, 두번째 캡처:{} start/end position={}'.
           format(match.group(), match.groups(), match.group(1), match.group(2), match.span()))
 '''
-찾은 패턴: 토마토, 캡처한 패턴: ('토마토', '토'), 첫번째 캡처: 토마토, 두번째 캡처:토 start/end position=(0, 3)
+찾은 패턴: 기러기, 캡처한 패턴: ('기러기', '기'), 첫번째 캡처: 기러기, 두번째 캡처:토 start/end position=(0, 3)
 찾은 패턴: aba, 캡처한 패턴: ('aba', 'a'), 첫번째 캡처: aba, 두번째 캡처:a start/end position=(8, 11)
 찾은 패턴: xyx, 캡처한 패턴: ('xyx', 'x'), 첫번째 캡처: xyx, 두번째 캡처:x start/end position=(12, 15)
 '''
@@ -382,9 +383,9 @@ for matchObj in matchObj_iter:
 # re.search를 반환하는 re.finditer를 이용하여 출력해준다.
 
 # \1 \2 대신 (?P<name>pattern)을 사용하여 직관적으로 볼수있다.
-print(re.search(r'(?P<name>\w{3}) (?P=name)\w', '토마토 토마토토 aba xyxy '))#<re.Match object; span=(0, 8), match='토마토 토마토토'>
+print(re.search(r'(?P<name>\w{3}) (?P=name)\w', '기러기 기러기기 aba xyxy '))#<re.Match object; span=(0, 8), match='기러기 기러기기'>
 # 찾는 패턴 (\w\w\w) (\w\w\w)\w 첫번째(\w\w\w)와 두번째(\w\w\w)는 같아야한다.
-print(re.search(r'(?P<name>\w{3}) (?P=name)\w', '토마토 토마토토 aba xyxy ').groups()) #('토마토',)
+print(re.search(r'(?P<name>\w{3}) (?P=name)\w', '기러기 기러기기 aba xyxy ').groups()) #('기러기',)
 # 캡처항목 : (?p<name>) 부분
 
 #치환
