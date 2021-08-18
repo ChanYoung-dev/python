@@ -485,8 +485,15 @@ print(re.search(f'(?<={a})\w+(?=\Z)', s)) #<re.Match object; span=(4, 7), match=
 print(re.findall(r'[a-z]+\d+(?!!)\b', 'tube1109! gorio303 ryan416'))
 # 끝자리에 !가 없는 것 추출
 
-# compile과 퀴즈 풀어보기
+# compile
 
+# 매번 re.search나 re.match 같이 re모듈로 직접 가져다쓰면 성능이 떨어진다.
+# 이를 개선하기 위해 re.compile로 컴파일을 미리해둘수 있다.
 
+# re.compile(pattern,flags)
 
-
+s = 'Where are the parameter located?'
+compile_Obj = re.compile('parameter') # 첫인자에는 pattern, 두번째는 옵션(flags)이다.
+where_Obj = compile_Obj.search(s) # 매개변수에 검색할 문자열
+print(where_Obj)
+# <re.Match object; span=(14, 23), match='parameter'>
