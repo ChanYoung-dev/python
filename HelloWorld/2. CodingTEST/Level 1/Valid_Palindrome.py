@@ -1,3 +1,8 @@
+# https://leetcode.com/problems/valid-palindrome/
+# 뒤집어도 같은 문자
+# ex) 토마
+# ex2)A man, a plan, a canal: Panama토
+
 #내가 한 풀이법 : 속도  68ms
 '''
     class Solution:

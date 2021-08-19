@@ -1,95 +1,86 @@
-#내가 한 풀이법 : 속도  68ms
-'''
-    class Solution:
-        # 숫자와 문자 말고는 다 제외한 문자열
-        def str_change(self, s: str):
-            s_copy = ''
-            for i in s:
-                if (ord(i) > 64 and ord(i) < 123) or (ord(i) > 47 and ord(i) <58):
-                    if ord(i) > 90 and ord(i) < 97:
-                        continue
-                    else:
-                        if ord(i) > 64 and ord(i) < 91:
-                            i = i.lower()
-                        s_copy += i
-            return s_copy
-        def isPalindrome(self, s: str) -> bool:
-            s_copy = ''
-            s_copy = self.str_change(s)
-            print(s_copy)
-            for i in s:
-                if (ord(i) > 64 and ord(i) < 123) or (ord(i) > 47 and ord(i) <58):
-                    if ord(i) > 90 and ord(i) < 97:
-                        continue
-                    else:
-                        if ord(i) > 64 and ord(i) < 91:
-                            i = i.lower()
-                        s_copy += i
-            if len(s_copy) == 1:
-                return True
-            elif len(s_copy) == 2 or len(s_copy) == 3:
-                if(s_copy[0] == s_copy[len(s_copy)-1]):
-                    return True
-                else:
-                    return False
-            else:
-                index = len(s_copy) // 2 - 1 if not len(s_copy) % 2 else len(s_copy) // 2
-                if len(s_copy) % 2:
-                    if (s_copy[:index+1] == s_copy[:index-1:-1]):
-                        return True
-                    else:
-                        return False
-                else:
-                    if (s_copy[:index+1] == s_copy[:index:-1]):
-                        return True
-                    else:
-                        return False
-a=Solution()
-print(a.isPalindrome('race a car'))
-'''
-#리스트를 이용한 풀이법 : 292 ms
-'''
+from typing import List
+
+
 class Solution:
-    def isPalindrome(self, s: str) -> bool:
-        s_list=[]
-        for char in s:
-            if char.isalnum():
-                s_list.append(char.lower())
-        print(s_list)
+    def reverseString(self, s: List[str]) -> None:
+        #불변객체와 가변객체의 차이
+        # 가변객체에 같은 값을 주었을때
+        print("s1:", s) # ['h', 'e', 'l', 'l', 'o']
+        print("s1:", id(s)) # 4302910720
 
-        while len(s_list)>1:
-            if s_list.pop(0) != s_list.pop():
-                return False
-        return True
+        s = ["h", "e", "l", "l", "o"]
+        print("s2", s) # ['h', 'e', 'l', 'l', 'o']
+        print("s2:", id(s))  # 4303608160
+
+        s = ["h", "e", "l", "l", "o"]
+        print("s3:", s)  # ['h', 'e', 'l', 'l', 'o']
+        print("s3:", id(s)) # s: 4389130480
+        # 4303818656
+        # 같은 값이어도 전부다 다르다
+
+        # 불변객체에 같은 값을 주었을 때
+
+        num = 4
+        print("num:", id(num))
+        #num: 4541833072
+        num = 4
+        print("num:", id(num))
+        #num: 4541833072
+        num2 = 4
+        print("num2:", id(num2))
+        #num2: 4509069168
+
+        str_num = '123'
+        print("str_num:", id(str_num))
+        # str_num: 4516378672
+        str_num = '123'
+        print("str_num:", id(str_num))
+        # str_num: 4516378672
+        str_num2 = '123'
+        print("str_num2:", id(str_num2))
+        # str_num: 4516378672
+        # 같은값이면 주소가 전부 같다.
+
+
+        # 가변객체와 불변객체의 같은점
+
+        # 가변객체 = 가변객체
+        str_list = ["a", "b", "c"]
+        print("str_list:", id(str_list)) # str_list: 4388907600
+        s = str_list
+        print("copy_str_list:", id(str_list)) # copy_str_list: 4388907600
+        print("copy_s: ", id(s)) # copy_s:  4388907600
+
+
+        # 불변객체 = 불변객체
+        num = 3
+        print("num:", num)
+        print("num(id):", id(num))
+        num2 = 1
+        print("num2:", num2)
+        print("num2(id):", id(num2))
+
+        num2 = num
+        print("num2:", num2)
+        print("num2(id):", id(num2))
+
+        #가변객체의 내부조작
+        s = ["h", "e", "l", "l", "o"]
+        print(id(s))
+        s[0] = "e"
+        print("s:", s)
+        print(id(s))
+
+        #불변객체의 내부조작
+        s = "hellow"
+        print(id(s))
+        s[3] = "e"
+        print("s:", s)
+        print(id(s))
+        #오류가 뜬다
+
+
 
 a=Solution()
-print(a.isPalindrome('A man, a plan, a canal: Panama'))
-'''
-
-#정규식을 이용한 풀이법 : 36ms
-'''
-import re
-class Solution:
-    def isPalindrome(self, s: str) -> bool:
-        s = s.lower()
-        s = re.sub('[^a-z0-9]', '', s)
-
-        return s == s[::-1]
-'''
-
-#데크를 이용한 풀이 : 48ms
-import collections
-class Solution:
-    def isPalindrome(self, s: str) -> bool:
-        strs = collections.deque()
-        for char in s:
-            if char.isalnum():
-                strs.append(char.lower())
-
-        while len(strs)>1:
-            if strs.popleft() != strs.pop():
-                return False
-        return True
-a=Solution()
-print(a.isPalindrome('A man, a plan, a canal: Panama'))
+print(a.reverseString(["h", "e", "l", "l", "o"]))
 
