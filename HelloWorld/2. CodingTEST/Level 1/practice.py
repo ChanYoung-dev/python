@@ -1,86 +1,89 @@
+'''
 from typing import List
-
-
+import re
+import collections
 class Solution:
-    def reverseString(self, s: List[str]) -> None:
-        #불변객체와 가변객체의 차이
-        # 가변객체에 같은 값을 주었을때
-        print("s1:", s) # ['h', 'e', 'l', 'l', 'o']
-        print("s1:", id(s)) # 4302910720
+    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+        word_list = []
+        iter_obj = re.finditer(r'\b(?:\w+)\b', paragraph)
+        for obj in iter_obj:
+            print(obj.group().lower())
+            x = 0
+            for i in banned:
+                if i == obj.group().lower():
+                    print(i, 'vs', obj.group().lower(), '같습니다.')
+                    x = 1
+                    break
+                else:
+                    print(i, 'vs', obj.group().lower(), '다릅니다.')
 
-        s = ["h", "e", "l", "l", "o"]
-        print("s2", s) # ['h', 'e', 'l', 'l', 'o']
-        print("s2:", id(s))  # 4303608160
+            if x == 0:
+                word_list.append(obj.group().lower())
 
-        s = ["h", "e", "l", "l", "o"]
-        print("s3:", s)  # ['h', 'e', 'l', 'l', 'o']
-        print("s3:", id(s)) # s: 4389130480
-        # 4303818656
-        # 같은 값이어도 전부다 다르다
+        # 아래는 위와 같은 의미이다.
+        #iter_obj = re.finditer(r'\b(?:\w+)\b', paragraph)
+        #word = [obj.group().lower() for obj in iter_obj
+                #if obj.group().lower() not in banned]
+        #print(word)
 
-        # 불변객체에 같은 값을 주었을 때
+        word_Count = collections.Counter(word_list)
+        print(word_Count)
+        return word_Count.most_common(1)[0][0]
+'''
 
-        num = 4
-        print("num:", id(num))
-        #num: 4541833072
-        num = 4
-        print("num:", id(num))
-        #num: 4541833072
-        num2 = 4
-        print("num2:", id(num2))
-        #num2: 4509069168
+from typing import List
+import re
+import collections
+class Solution:
+    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+        word_list = []
 
-        str_num = '123'
-        print("str_num:", id(str_num))
-        # str_num: 4516378672
-        str_num = '123'
-        print("str_num:", id(str_num))
-        # str_num: 4516378672
-        str_num2 = '123'
-        print("str_num2:", id(str_num2))
-        # str_num: 4516378672
-        # 같은값이면 주소가 전부 같다.
+        '''
+        words = [word for word in re.sub(r'[^\w]', ' ',paragraph)
+                 .lower().split()
+                 if word not in banned]
+        print(words)
+        '''
 
+        iter_obj = re.finditer(r'\b(?:\w+)\b', paragraph)
+        words = [obj.group().lower() for obj in iter_obj
+                if obj.group().lower() not in banned]
+        print(words)
+        counts = collections.defaultdict(int)
 
-        # 가변객체와 불변객체의 같은점
+        for word in words:
+            counts[word] += 1
+        for key in counts.keys():
+            print(key)
+        print('count',counts[0])
+        print(counts)
+        print(max(counts, key = counts.get))
+        print(max(counts, key = lambda x : counts[x]))
 
-        # 가변객체 = 가변객체
-        str_list = ["a", "b", "c"]
-        print("str_list:", id(str_list)) # str_list: 4388907600
-        s = str_list
-        print("copy_str_list:", id(str_list)) # copy_str_list: 4388907600
-        print("copy_s: ", id(s)) # copy_s:  4388907600
-
-
-        # 불변객체 = 불변객체
-        num = 3
-        print("num:", num)
-        print("num(id):", id(num))
-        num2 = 1
-        print("num2:", num2)
-        print("num2(id):", id(num2))
-
-        num2 = num
-        print("num2:", num2)
-        print("num2(id):", id(num2))
-
-        #가변객체의 내부조작
-        s = ["h", "e", "l", "l", "o"]
-        print(id(s))
-        s[0] = "e"
-        print("s:", s)
-        print(id(s))
-
-        #불변객체의 내부조작
-        s = "hellow"
-        print(id(s))
-        s[3] = "e"
-        print("s:", s)
-        print(id(s))
-        #오류가 뜬다
+        nums = [-5, 3, 0, 3, -5]
+        print(min(nums, key=lambda x: x % 5))
 
 
+        menu = {"ham": 1, "cucumber": -12, "egg": 100}
 
+        if menu.get("hame", 5) == 5:
+            print("네, 찾는 것이 없네요")
+            menu["hame"] = 12
+        else:
+            print("그런 메뉴는 있습니다.")
+
+        print(menu.get(0))
+        #for key in menu.keys():
+            #print()
+
+        print(menu.items())
+
+        names = collections.defaultdict(int)
+        if names['김찬영']:
+            print("김찬영이 있습니다.")
+        else:
+            print("김찬영이 생성되었습니다..")
+
+        print(names)
 a=Solution()
-print(a.reverseString(["h", "e", "l", "l", "o"]))
-
+print(a.mostCommonWord('Bob hit a ball, the hit BALL flew far after it was hit.', ["hit"]))
