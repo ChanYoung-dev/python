@@ -198,8 +198,19 @@ while True:
 
 # assert
 # 디버깅용도a = 10
-assert a > 5
+#assert a > 5
 #assert a < 5
 # AssertionError
 #assert a < 5, "a의 값이 너무 큽니다."
 # AssertionError: a의 값이 너무 큽니다.
+
+#map
+def plus_two(x):
+    return x+2
+
+a = list(map(plus_two, [1, 2, 3, 4]))
+print(a) # [3, 4, 5, 6]
+a = list(map(lambda a:a+2, [1, 2, 3, 4]))
+print(a) # [3, 4, 5, 6]
+a = [a+2 for a in range(1,5)]
+print(a) # [3, 4, 5, 6]

@@ -310,7 +310,23 @@ print('같은 객체' if a is c else '다른 객체') # 다른 객체
 c=10
 print('같은 객체' if a is c else '다른 객체') # 같은 객체
 ```
-## 8. 퀴즈
+
+## 8. Map
+>map(function, iterable)
+
+map은 첫번째 인자에 함수 두번째 인자에 iterable객체가 들어간다.
+```python
+def plus_two(x):
+    return x+2
+
+a = list(map(plus_two, [1, 2, 3, 4]))
+print(a) # [3, 4, 5, 6]
+a = list(map(lambda a:a+2, [1, 2, 3, 4]))
+print(a) # [3, 4, 5, 6]
+a = [a+2 for a in range(1,5)]
+print(a) # [3, 4, 5, 6]
+```
+## 9. 퀴즈
 - ### 문제
 
 
