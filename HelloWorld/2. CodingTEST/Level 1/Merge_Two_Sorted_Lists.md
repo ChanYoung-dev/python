@@ -40,7 +40,7 @@ else:
 
 3. main 이 끝까지 갔을 경우 sub의 나머지부분 전체를 main 뒤에 붙인다.
 
-   ![C](./img/C.png)
+   ![C](./img/c.png)
 
    ```python
    if main.next == None:
