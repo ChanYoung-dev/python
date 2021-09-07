@@ -49,9 +49,12 @@
     ```python
     s = ["h", "e", "l", "l", "o"]
     print(id(s))
+    # s의 id :4407217216
     s[0] = "e"
     print("s:", s)
+    #s: ['e', 'e', 'l', 'l', 'o']
     print(id(s))
+    # s의 id :4407217216
     ```
     - #### 불변객체의 내부조작
     ```python
@@ -84,12 +87,18 @@ print("copy_s: ", id(s)) # copy_s:  4388907600
 num = 3
 print("num:", num)
 print("num(id):", id(num))
+#num: 3
+#num(id): 4405852528
 num2 = 1
 print("num2:", num2)
 print("num2(id):", id(num2))
+#num2: 1
+#num2(id): 4405852464
 
 num2 = num
 print("num2:", num2)
 print("num2(id):", id(num2))
+#num2: 3
+#num2(id): 4405852528
 ```
 
