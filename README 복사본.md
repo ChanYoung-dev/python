@@ -10,7 +10,7 @@
 <summary>접기/펼치기</summary> 
 
 <script src="https://gist.github.com/ChanYoung-dev/f45a1bb8d4a4a5b763e7fae304382b33.js"></script>
- 
+
 - [Beginner of Basic](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/Basic_of_Basic "basic")
 - [DataStructure](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/DataStructure "datastructure")
 - [Conditional_Sentence](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/1.%20Basic/conditional_sentence "conditional_sentence")
@@ -28,7 +28,7 @@
 
 <details> 
 <summary>접기/펼치기</summary> 
- 
+
 - [Level 0](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/2.%20CodingTEST/Level%200 "level0")
 - [Level 1](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/2.%20CodingTEST/Level%201 "level1")
 - [Level 2](https://github.com/ChanYoung-dev/pythonBasic/tree/master/HelloWorld/2.%20CodingTEST/Level%202 "level2")
@@ -41,10 +41,10 @@
 
 <details> 
 <summary>접기/펼치기</summary> 
- 
+
 - #### 1부 python
   - [python](https://github.com/ChanYoung-dev/python/tree/master/HelloWorld/3.%20Coding%20Interview/python "python")
-</details>
+  </details>
 
 
 
