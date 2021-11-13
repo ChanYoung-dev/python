@@ -1,7 +1,8 @@
 import collections
 class Solution:
     def solutionA(self, directory, command):
-        
+        pass
+
 
 
 
