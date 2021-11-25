@@ -1,6 +1,6 @@
 # page 504
 # https://leetcode.com/problems/largest-number/
-
+# 삽입정렬사용
 from typing import List
 
 def compare(n, m):
