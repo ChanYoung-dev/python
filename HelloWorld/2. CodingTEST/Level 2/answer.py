@@ -8,8 +8,8 @@ class Solution:
                 while sum(array) > s:
                     array.pop()
                 if sum(array) == s:
-                    answer.append(array)
-        answer = []
+                    answer.add(tuple(array))
+        answer = set()
         for k in range(n):
             for l in range(n):
                 func(k, l, vertical=True)
