@@ -1,20 +1,20 @@
 from typing import List
-
+import re
 class Solution:
-    def findContentChildren(self, g: List[int], s: List[int]) -> int:
-        init_len = len(g)
-        g.sort(reverse=True)
-        s.sort(reverse=True)
-        print(g, s)
+    def diffWaysToCompute(self, expression: str) -> List[int]:
+        print(expression)
+        if len(expression) == 2:
+            return int(expression[0])
+            
+        for i in range(1, len(expression), 2):
+            a = self.diffWaysToCompute(expression[:i])
+            b = self.diffWaysToCompute(expression[i+1:])
 
-        while s and g:
-            print(g[-1], s[-1])
-            if g[-1] > s[-1]:
-                s.pop()
-            else:
-                s.pop()
-                g.pop()
-        return init_len - len(g)
-
+        if expression[1] == '*':
+            return a * b
+        elif expression[1] == '+':
+            return a + b
+        elif expression[1] == '-':
+            return a - b
 a=Solution()
-print(a.findContentChildren(g = [100, 50, 1], s = [101, 89, 51, 49, 1]))
+print(a.diffWaysToCompute(expression = "2*3-4*5"))

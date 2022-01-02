@@ -26,4 +26,5 @@ class Solution:
 
 a = Solution()
 print(a.solution())
-# 순열 조합 응용문제
+# 재귀함수
+# recursive
