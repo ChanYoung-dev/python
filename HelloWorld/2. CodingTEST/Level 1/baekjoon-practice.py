@@ -2,11 +2,17 @@
 
 
 class Solution:
-    space = -1
     def solution(self):
-
+        space = -1
         number_repetitions = int(input())
         pattern = ['*']
+
+        def recursive():
+            if number_repetitions * 4 - 5 == space:
+                return '\n'.join(pattern)
+
+        return recursive()
+
 
         def recursive():
             if number_repetitions * 4 - 5 == self.space:
@@ -23,7 +29,6 @@ class Solution:
             return recursive()
 
         return recursive()
-
 
 a = Solution()
 print(a.solution())
